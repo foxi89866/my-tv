@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">My Simple TV</string>
+    <string name="youtube">YouTube</string>
+    <string name="anilibria">Anilibria TV</string>
+    <string name="google">Google</string>
+    <string name="settings">Настройки</string>
+    <string name="hdmi">HDMI</string>
+    <string name="emergency_exit">Выход</string>
+</resources>

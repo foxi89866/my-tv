@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="bg_dark">#0A0A0C</color>
+    <color name="card_normal">#18191E</color>
+    <color name="card_focused">#242630</color>
+    <color name="card_stroke_focused">#FFFFFF</color>
+    <color name="text_primary">#F0F0F0</color>
+    <color name="text_secondary">#8E9297</color>
+    <color name="accent_youtube">#FF0000</color>
+    <color name="accent_anilibria">#7B2CBF</color>
+    <color name="accent_google">#4285F4</color>
+    <color name="accent_hdmi">#00B4D8</color>
+    <color name="accent_emergency">#FF4D6D</color>
+</resources>
