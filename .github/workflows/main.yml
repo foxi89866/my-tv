@@ -18,6 +18,46 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - name: Accept Android SDK Licenses
+        run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses 2>/dev/null || true
+
+      - name: Optimize for Pure Android
+        run: |
+          cat << 'EOF' > app/build.gradle
+          plugins {
+              id 'com.android.application'
+          }
+          android {
+              namespace 'com.custom.mytv'
+              compileSdk 34
+              defaultConfig {
+                  applicationId "com.custom.mytv"
+                  minSdk 21
+                  targetSdk 34
+                  versionCode 1
+                  versionName "1.0"
+              }
+              buildTypes {
+                  release { minifyEnabled false }
+                  debug { debuggable true }
+              }
+              compileOptions {
+                  sourceCompatibility JavaVersion.VERSION_1_8
+                  targetCompatibility JavaVersion.VERSION_1_8
+              }
+          }
+          dependencies {}
+          EOF
+          cat << 'EOF' > app/src/main/res/values/themes.xml
+          <resources>
+              <style name="Theme.MyTvLauncher" parent="android:Theme.DeviceDefault.NoActionBar.Fullscreen">
+                  <item name="android:windowBackground">@color/bg_dark</item>
+                  <item name="android:statusBarColor">@color/bg_dark</item>
+                  <item name="android:navigationBarColor">@color/bg_dark</item>
+              </style>
+          </resources>
+          EOF
+
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
         with:
